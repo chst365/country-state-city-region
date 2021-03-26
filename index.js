@@ -22,17 +22,17 @@ app.get('/get', function (req, res) {
                         association: Area.hasMany(State, {
                             foreignKey: 'area_id',
                         }),
-                        attributes: [['id', 'stateId'], ['cname', 'stateName']], nested: true,
+                        attributes: [['id', 'stateId'], ['cname', 'stateName']],
                         include: [{
                             association: State.hasMany(City, {
                                 foreignKey: 'state_id',
                             }),
-                            attributes: [['id', 'cityId'], ['cname', 'cityName']], nested: true,
+                            attributes: [['id', 'cityId'], ['cname', 'cityName']],
                             include: [{
                                 association: City.hasMany(Region, {
                                     foreignKey: 'city_id',
                                 }),
-                                attributes: [['id', 'regionId'], ['cname', 'regionName']], nested: true,
+                                attributes: [['id', 'regionId'], ['cname', 'regionName']],
                             }]
                         }]
                     }]
@@ -46,13 +46,13 @@ app.get('/get', function (req, res) {
                         association: State.hasMany(City, {
                             foreignKey: 'state_id',
                         }),
-                        attributes: [['id', 'cityId'], ['cname', 'cityName']], nested: true,
+                        attributes: [['id', 'cityId'], ['cname', 'cityName']],
                         include: [{
                             association: City.hasMany(Region, {
                                 foreignKey: 'city_id',
                                 targetKey: 'id'
                             }),
-                            attributes: [['id', 'regionId'], ['cname', 'regionName']], nested: true,
+                            attributes: [['id', 'regionId'], ['cname', 'regionName']],
                         }]
                     }]
                 }]
